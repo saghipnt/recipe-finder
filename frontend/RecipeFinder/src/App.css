@@ -5,38 +5,76 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.Gallery{
+  min-height: 100vh;
+
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.search-form{
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.search-bar{
+  width: 50%;
+  border:1px black;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px black;
+
+}
+.search-button{
+  border: 5px solid white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  font-size: larger;
+  margin: 0 0 0 10px;
+}
+.search-button:hover {
+  background-color: #535bf2 ;
+}
+.recipes{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.recipe{
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 40%;
+}
+.recipe-col {
+  margin-bottom: 20px;
+}
+.card-img-top {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-title {
+  height: 3em;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.card-body {
+  padding: 0;
 }
-
-.card {
-  padding: 2em;
+.list-group{
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
 }
-
-.read-the-docs {
-  color: #888;
+.img-fluid {
+  width:100%;
+  z-index: 0;
+}
+.title {
+  z-index:1;
+  font-size: 1.2em;
+  margin-top: -100px;
 }
