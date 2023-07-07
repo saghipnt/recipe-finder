@@ -1,7 +1,6 @@
 package saghi.recipe.recipefinder.tasty;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -13,15 +12,13 @@ import saghi.recipe.recipefinder.model.Recipe;
 import saghi.recipe.recipefinder.model.RecipeList;
 
 import java.net.URI;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 @Component
 public class ApiClient {
     @Autowired
     RestTemplate restTemplate;
-    private static final String apiKey="6619068984mshb46edb4fc36da10p1a1b3bjsnd19683e85c63";
+    private static final String apiKey="4d67c8c540msh81b29e32cf344a4p14ee15jsnf78ca3f16d53";
     private static final String apiHost="tasty.p.rapidapi.com";
     private static final String API_URL = "https://tasty.p.rapidapi.com/recipes";
 

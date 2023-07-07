@@ -16,11 +16,13 @@ public class Controller {
     RecipeService recipeService;
 
     @GetMapping("/search")
+    @CrossOrigin(origins = "*")
     public RecipeList searchRecipes(@ModelAttribute SearchDTO searchDTO) {
         return recipeService.searchRecipe(searchDTO);
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "*")
     public Recipe getRecipeById(@PathVariable("id") String id) {
         return recipeService.getRecipeById(id);
     }

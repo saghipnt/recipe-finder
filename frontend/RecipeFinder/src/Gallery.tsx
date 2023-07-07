@@ -40,15 +40,13 @@ function Gallery() {
 
     return (
         <>
-            {/*<div className="container">*/}
-            {/*    <div className="row">*/}
-            {/*        <img src="Foodi.jpg" className="img-fluid" alt="..."/>*/}
-            {/*        <span className="overlay-text">Tasty Finder</span>*/}
-
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="container">
+                <div className="row">
+                    <img src="Foodi.jpg" className="img-fluid" alt="..."/>
+                </div>
+            </div>
             <div className="Gallery">
-                <h1>Tasty Finder</h1>
+                <h1 className="title">Tasty Finder</h1>
                 <form className="search-form" onSubmit={handleSubmitSearch}>
                     <div className="input-group mb-3">
                         <input

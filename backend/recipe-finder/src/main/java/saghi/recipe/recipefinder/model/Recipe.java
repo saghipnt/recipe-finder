@@ -4,7 +4,9 @@ package saghi.recipe.recipefinder.model;
 import java.util.List;
 
 public class Recipe {
+
     private String id;
+
     private String name;
 
     private String thumbnail_url;
