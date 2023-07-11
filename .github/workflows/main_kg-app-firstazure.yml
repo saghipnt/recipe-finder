@@ -3,12 +3,13 @@
 
 name: Build and deploy JAR app to Azure Web App - KG-App-firstAzure
 
-on:
+on: 
   push:
     branches:
       - main
-  workflow_dispatch:
-
+  pull_request:
+    branches:
+      - main 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,30 +24,51 @@ jobs:
           cache: 'maven'
       - name: Build with Maven
         run: mvn clean test
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
 
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
 
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: java-app
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
+#       - name: Setup jdk-17
+#         uses: actions/setup-java@v3
+#         with:
+#           distribution: 'zulu'
+#           java-version: '17'
+#           cache: 'maven'
+#       - name: Build with Maven
+#         run: mvn clean test
+#       - name: Upload artifact for deployment job
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: java-app
+#           path: '${{ github.workspace }}/target/*.jar'
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'KG-App-firstAzure'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_360ADE5CE36444FE9A09F2321F2B652B }}
-          package: '*.jar'
+#   deploy:
+#     runs-on: windows-latest
+#     needs: build
+#     environment:
+#       name: 'Production'
+#       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+#     steps:
+#       - name: Download artifact from build job
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: java-app
+
+#       - name: Deploy to Azure Web App
+#         id: deploy-to-webapp
+#         uses: azure/webapps-deploy@v2
+#         with:
+#           app-name: 'KG-App-firstAzure'
+#           slot-name: 'Production'
+#           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_360ADE5CE36444FE9A09F2321F2B652B }}
+#           package: '*.jar'
