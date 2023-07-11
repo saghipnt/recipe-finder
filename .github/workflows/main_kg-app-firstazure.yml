@@ -31,11 +31,11 @@ jobs:
         working-directory: backend/recipe-finder
         run: mvn clean test
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: java-app
 #           working-directory: backend/recipe-finder
-          path: '${{ github.workspace }}/backend/recipe-finder/target/*.jar'
+          path: '${{ github.workspace }}/target/*.jar'
           
 
   deploy:
@@ -47,13 +47,13 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: java-app
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: 'KG-App-firstAzure'
           slot-name: 'Production'
