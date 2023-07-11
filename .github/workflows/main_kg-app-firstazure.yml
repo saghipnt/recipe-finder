@@ -28,13 +28,13 @@ jobs:
           java-version: '17'
           cache: 'maven'
       - name: Build with Maven
-        working-directory: ./backend/recipe-finder
+        working-directory: backend/recipe-finder
         run: mvn clean test
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/backend/recipe-finder/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
