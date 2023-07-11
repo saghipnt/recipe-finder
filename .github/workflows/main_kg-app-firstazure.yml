@@ -35,7 +35,7 @@ jobs:
         with:
           name: java-app
 #           working-directory: backend/recipe-finder
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '**/*.jar'
           
 
   deploy:
@@ -53,7 +53,7 @@ jobs:
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v2
         with:
           app-name: 'KG-App-firstAzure'
           slot-name: 'Production'
