@@ -34,8 +34,8 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          working-directory: backend/recipe-finder
-          path: '${{ github.workspace }}/target/*.jar'
+#           working-directory: backend/recipe-finder
+          path: '${{ github.workspace }}/backend/recipe-finder/target/*.jar'
           
 
   deploy:
