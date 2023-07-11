@@ -28,7 +28,7 @@ jobs:
           java-version: '17'
           cache: 'maven'
       - name: Build with Maven
-        working-directory: /backend/recipe-finder
+        working-directory: backend/recipe-finder
         run: mvn clean test
 
 # on:
