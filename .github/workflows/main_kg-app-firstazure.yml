@@ -35,7 +35,7 @@ jobs:
         with:
           name: java-app
 #           working-directory: backend/recipe-finder
-          path: 'backend/recipe-finder/*.jar'
+          path: '${{ github.workspace }}/target/*.jar'
           
 
   deploy:
@@ -50,6 +50,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: java-app
+          
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{secrets.AZURE_WEBAPP }}    
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
