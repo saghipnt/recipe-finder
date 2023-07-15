@@ -35,7 +35,7 @@ jobs:
         with:
           name: java-app
 #           working-directory: backend/recipe-finder
-          path: '${{ github.workspace }}/target/*.jar'
+          path: 'backend/recipe-finder/*.jar'
           
 
   deploy:
